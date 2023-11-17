@@ -17,7 +17,9 @@ function App() {
   };
 
   const handleDecrement = () => {
-    dispatch(decrement());
+    if (count > 0) {
+      dispatch(decrement());
+    }
   };
   
   const handleReset = () => {
@@ -27,9 +29,11 @@ function App() {
   return (
     <div>
       <h1>Counter: {count}</h1>
+      <div className="d-flex">
       <Increment increment={handleIncrement} />
       <Decrement decrement={handleDecrement} />
       <Reset reset={handleReset} />
+      </div>
     </div>
   );
 }
